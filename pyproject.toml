@@ -1,11 +1,18 @@
 [project]
-name = "data-analytics"
+name = "data_analytics"
 version = "0.1.0"
-description = "Add your description here"
+description = "This tiny project can be use as a template to start working with Python for Data Analytics."
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "pandas>=2.3.3",
-    "psycopg>=3.2.11",
-    "sqlalchemy>=2.0.44",
+authors = [
+  { name = "Sebastian A. Rodriguez C.", email = "sebas.sarc@gmail.com" },
 ]
+
+dependencies = [
+  "asyncpg>=0.30.0",
+  "dotenv>=0.9.9",
+  "greenlet>=3.2.4",
+  "pandas>=2.3.3",
+  "sqlalchemy>=2.0.44",
+]
+

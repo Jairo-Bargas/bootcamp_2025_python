@@ -32,5 +32,12 @@ async def main():
         await db.close()
 
 
+def run():
+    """
+    This is the entry point for the application.
+    """
+    asyncio.run(main())
+
+
 if __name__ == "__main__":
     asyncio.run(main())
