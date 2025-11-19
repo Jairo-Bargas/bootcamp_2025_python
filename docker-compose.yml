@@ -11,7 +11,7 @@ services:
       - "5400:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/
-      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./_init-scripts:/docker-entrypoint-initdb.d
     networks:
       - bootcamp_network
     user: ${POSTGRES_USER}

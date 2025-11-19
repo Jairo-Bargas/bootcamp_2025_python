@@ -40,6 +40,26 @@
 
 ---
 
+### Navigation
+
+You can focus on the following files/folders:
+
+- `"Class Documents"/` folder - Contains lecture notes.
+- `exercises/` folder - Contains exercises for practice.
+- `README.md` - Project overview and instructions (this file).
+
+---
+
+### To run Exercises
+
+NOTE: _replace `n` with the exercises set number_
+
+```bash
+uv run pytest _tests/test_exercices_n.py -vv
+```
+
+---
+
 1. To run the project: `uv run main.py`
 1. To run `Jupyter`:
    _(This is more convenient than `google colab` for connecting to the local database)_
