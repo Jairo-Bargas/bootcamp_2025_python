@@ -3,7 +3,7 @@ from typing import Any  # , Literal
 
 def primeros_ejercicios() -> Any:
     """
-    # Primeros ejercicios básicos
+    # Primeros ejercicios
 
     En futuras clases vamos a aprender/repasar la syntaxis útilizada en este archivo,
     por ahora, vamos a concentrarnos en la resolución de los ejercicios.

@@ -55,7 +55,7 @@ You can focus on the following files/folders:
 NOTE: _replace `n` with the exercises set number_
 
 ```bash
-uv run pytest _tests/test_exercices_n.py -vv
+uv run pytest _tests/test_exercises_n.py -vv
 ```
 
 ---
