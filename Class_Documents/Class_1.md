@@ -383,58 +383,239 @@ jupyter lab
 
 ### Elementos Fundamentales
 
+#### 📐 Indentación
+
 <div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
 
 ```mermaid
-flowchart LR
-    A[Sintaxis Python] --> B[Indentación]
-    A --> C[Comentarios]
-    A --> D[Variables]
-    A --> E[Operadores]
+graph LR
+    A[Indentación] --> B[4 espacios estándar]
+    A --> C[Define bloques]
+    A --> D[Sin llaves]
 
-    B --> B1[4 espacios estándar]
-    B --> B2[Define bloques]
-    B --> B3[Sin llaves]
-
-    C --> C1[# Línea simple]
-    C --> C2[Docstrings]
-    C --> C3[Documentación]
-
-    D --> D1[Sin declaración de tipo]
-    D --> D2[snake_case]
-    D --> D3[Asignación dinámica]
-
-    E --> E1[Aritméticos]
-    E --> E2[Lógicos]
-    E --> E3[Comparación]
-
-    style A fill:#B8860B,stroke:#fff,stroke-width:4px,color:#fff
+    style A fill:#2C5F8D,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 </div>
 
-**Ejemplo práctico con indentación, comentarios y operadores:**
+**Ejemplos de indentación:**
 
 ```python
-# file: fundamentals.py
+# file: indentation.py
 
-# Single-line comment
-message = "Hello Bootcamp"  # snake_case variable
+# Correct indentation (4 spaces)
+def function_example():
+    if True:
+        print("Indented 4 spaces")
+        if True:
+            print("Indented 8 spaces")
 
-def greet(name: str) -> str:
-    """Docstring that describes the function."""
-    result = f"{message}, {name}"
-    if len(name) > 5:
-        result += " (long name)"
-    return result.upper()
+# Incorrect indentation (will cause IndentationError)
+# def wrong_function():
+#  print("Only 2 spaces - ERROR!")
 
-print(greet("Team"))
-print(3 + 5 * 2)  # Arithmetic operators
+# Indentation defines code blocks
+x = 10
+if x > 5:
+    print("x is greater than 5")
+    print("This is still in the if block")
+print("This is outside the if block")
 ```
 
 ```bash
-# Run the file and check the output
-python fundamentals.py
+python indentation.py
+```
+
+#### 💬 Comentarios
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Comentarios] --> B[# Línea simple]
+    A --> C[Docstrings]
+    A --> D[Documentación]
+
+    B --> B1[Comentario inline]
+    C --> C1[Triple comillas]
+    D --> D1[Documentación de funciones]
+
+    style A fill:#228B22,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de comentarios:**
+
+```python
+# file: comments.py
+
+# Single-line comment
+message = "Hello Bootcamp"  # Inline comment
+
+# Multi-line comment using multiple #
+# This is a multi-line comment
+# Each line starts with #
+
+def calculate_total(price, quantity):
+    """
+    Docstring: Multi-line documentation string.
+    
+    This function calculates the total price.
+    
+    Args:
+        price: Unit price
+        quantity: Number of items
+    
+    Returns:
+        Total price
+    """
+    return price * quantity  # Calculate total
+
+# Module-level docstring
+"""
+This is a module docstring.
+It describes the purpose of the entire module.
+"""
+
+print(calculate_total(10, 5))
+```
+
+```bash
+python comments.py
+```
+
+#### 📦 Variables
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Variables] --> B[Sin declaración de tipo]
+    A --> C[snake_case]
+    A --> D[Asignación dinámica]
+
+    B --> B1[Tipado dinámico]
+    C --> C1[Convención PEP 8]
+    D --> D1[Reasignación flexible]
+
+    style A fill:#8B4513,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#DAA520,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#DAA520,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#DAA520,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de variables:**
+
+```python
+# file: variables.py
+
+# Variable assignment (no type declaration)
+name = "Python"
+age = 30
+price = 19.99
+is_active = True
+
+# Dynamic typing - can change type
+value = 42
+print(f"value is {type(value)}")  # <class 'int'>
+
+value = "Now I'm a string"
+print(f"value is {type(value)}")  # <class 'str'>
+
+# snake_case naming convention
+user_name = "Alice"
+total_count = 100
+is_valid = True
+
+# Multiple assignment
+x, y, z = 1, 2, 3
+a = b = c = 0
+
+# Variable unpacking
+coordinates = (10, 20)
+x_coord, y_coord = coordinates
+
+print(f"Name: {name}, Age: {age}")
+```
+
+```bash
+python variables.py
+```
+
+#### 🔧 Operadores
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Operadores] --> B[Aritméticos]
+    A --> C[Lógicos]
+    A --> D[Comparación]
+    A --> E[Asignación]
+
+    B --> B1[+, -, *, /, %, **]
+    C --> C1[and, or, not]
+    D --> D1[==, !=, <, >, <=, >=]
+    E --> E1[=, +=, -=, *=, /=]
+
+    style A fill:#8B008B,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de operadores:**
+
+```python
+# file: operators.py
+
+# Arithmetic operators
+a, b = 10, 3
+print(f"Addition: {a + b}")      # 13
+print(f"Subtraction: {a - b}")   # 7
+print(f"Multiplication: {a * b}")  # 30
+print(f"Division: {a / b}")      # 3.333...
+print(f"Floor division: {a // b}")  # 3
+print(f"Modulus: {a % b}")       # 1
+print(f"Exponentiation: {a ** b}")  # 1000
+
+# Comparison operators
+x, y = 5, 10
+print(f"Equal: {x == y}")        # False
+print(f"Not equal: {x != y}")   # True
+print(f"Less than: {x < y}")    # True
+print(f"Greater than: {x > y}") # False
+print(f"Less or equal: {x <= y}")  # True
+
+# Logical operators
+p, q = True, False
+print(f"AND: {p and q}")         # False
+print(f"OR: {p or q}")           # True
+print(f"NOT: {not p}")           # False
+
+# Assignment operators
+counter = 5
+counter += 2  # counter = counter + 2
+print(f"Counter: {counter}")     # 7
+
+counter *= 2  # counter = counter * 2
+print(f"Counter: {counter}")     # 14
+```
+
+```bash
+python operators.py
 ```
 
 ### Estructura de un Programa Python
@@ -489,103 +670,473 @@ chmod +x base_structure.py   # Optional on Unix
 
 ### Tipos de Datos Básicos
 
+#### 🔢 Tipos Numéricos: int, float, complex
+
 <div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
 
 ```mermaid
 graph LR
-    A[Tipos de Datos Python] --> B[Numéricos]
-    A --> C[Secuencias]
-    A --> D[Mapeos]
-    A --> E[Sets]
-    A --> F[Booleanos]
-    A --> G[None]
+    A[Tipos Numéricos] --> B[int]
+    A --> C[float]
+    A --> D[complex]
 
-    B --> B1[int - Enteros]
-    B --> B2[float - Decimales]
-    B --> B3[complex - Complejos]
+    B --> B1[Enteros]
+    C --> C1[Decimales]
+    D --> D1[Complejos]
 
-    C --> C1[str - Cadenas]
-    C --> C2[list - Listas]
-    C --> C3[tuple - Tuplas]
-    C --> C4[range - Rangos]
-
-    D --> D1[dict - Diccionarios]
-
-    E --> E1[set - Conjuntos]
-    E --> E2[frozenset - Inmutables]
-
-    style A fill:#8B4513,stroke:#fff,stroke-width:4px,color:#fff
+    style A fill:#2C5F8D,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 </div>
 
-**Inspección rápida de tipos en REPL e impresión formateada:**
+**Ejemplos de tipos numéricos:**
 
 ```python
-# file: types_demo.py
-collection = {
-    "number": 42,
-    "pi": 3.1415,
-    "text": "Hello",
-    "list": [1, 2, 3],
-    "set": {"python", "bootcamp"},
-    "dictionary": {"course": "DevLights", "level": "Beginner"},
-}
+# file: numeric_types.py
 
-for name, value in collection.items():
-    print(f"{name:<12} -> {type(value).__name__} = {value}")
+# Integers
+positive_int = 42
+negative_int = -10
+large_int = 1_000_000  # Underscore for readability
+
+# Floats
+pi = 3.14159
+scientific = 1.5e3  # 1500.0
+negative_float = -0.5
+
+# Complex numbers
+complex_num = 3 + 4j
+another_complex = complex(1, 2)
+
+# Operations
+result = positive_int + pi
+print(f"Integer + Float: {result}")
+print(f"Type: {type(result)}")
+
+# Type conversion
+int_from_float = int(3.7)  # 3
+float_from_int = float(5)  # 5.0
 ```
 
 ```bash
-python -i types_demo.py  # Keep interactive mode to continue testing
+python numeric_types.py
+```
+
+#### 📝 Tipos de Secuencia: str, list, tuple, range
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Secuencias] --> B[str]
+    A --> C[list]
+    A --> D[tuple]
+    A --> E[range]
+
+    B --> B1[Cadenas de texto]
+    C --> C1[Listas mutables]
+    D --> D1[Tuplas inmutables]
+    E --> E1[Rangos numéricos]
+
+    style A fill:#228B22,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de secuencias:**
+
+```python
+# file: sequences.py
+
+# Strings
+single_quote = 'Hello'
+double_quote = "World"
+multiline = """Line 1
+Line 2"""
+f_string = f"{single_quote} {double_quote}"
+
+# Lists (mutable)
+numbers = [1, 2, 3, 4, 5]
+mixed_list = [1, "two", 3.0, True]
+numbers.append(6)  # Modify list
+
+# Tuples (immutable)
+coordinates = (10, 20)
+single_tuple = (42,)  # Comma required
+point = 3, 4  # Parentheses optional
+
+# Range
+num_range = range(5)  # 0, 1, 2, 3, 4
+range_with_start = range(2, 8)  # 2, 3, 4, 5, 6, 7
+range_with_step = range(0, 10, 2)  # 0, 2, 4, 6, 8
+
+# Common operations
+print(f"String length: {len(f_string)}")
+print(f"List slice: {numbers[1:3]}")
+print(f"Range to list: {list(num_range)}")
+```
+
+```bash
+python sequences.py
+```
+
+#### 🗺️ Tipos de Mapeo: dict
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Diccionarios] --> B[dict]
+
+    B --> B1[Clave-Valor]
+    B --> B2[Mutables]
+    B --> B3[Acceso rápido]
+
+    style A fill:#8B4513,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#DAA520,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de diccionarios:**
+
+```python
+# file: dictionaries.py
+
+# Dictionary creation
+person = {
+    "name": "Alice",
+    "age": 30,
+    "city": "Madrid"
+}
+
+# Access values
+print(person["name"])
+print(person.get("age", 0))  # Safe access with default
+
+# Modify dictionary
+person["email"] = "alice@example.com"
+person.update({"country": "Spain"})
+
+# Dictionary methods
+keys = person.keys()
+values = person.values()
+items = person.items()
+
+# Dictionary comprehension
+squares_dict = {x: x**2 for x in range(5)}
+print(f"Squares dict: {squares_dict}")
+```
+
+```bash
+python dictionaries.py
+```
+
+#### 🔷 Conjuntos: set, frozenset
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Conjuntos] --> B[set]
+    A --> C[frozenset]
+
+    B --> B1[Mutables]
+    B --> B2[Sin duplicados]
+    C --> C1[Inmutables]
+    C --> C2[Hashable]
+
+    style A fill:#8B008B,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de conjuntos:**
+
+```python
+# file: sets.py
+
+# Set creation
+fruits = {"apple", "banana", "orange"}
+numbers_set = set([1, 2, 3, 3, 4])  # Duplicates removed
+
+# Set operations
+fruits.add("grape")
+fruits.remove("banana")
+fruits.discard("mango")  # Safe remove
+
+# Set operations
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+union = set1 | set2  # {1, 2, 3, 4, 5}
+intersection = set1 & set2  # {3}
+difference = set1 - set2  # {1, 2}
+
+# Frozenset (immutable)
+immutable_set = frozenset([1, 2, 3])
+# immutable_set.add(4)  # Error: frozenset is immutable
+```
+
+```bash
+python sets.py
+```
+
+#### ✅ Tipos Booleanos y None
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Valores Especiales] --> B[bool]
+    A --> C[None]
+
+    B --> B1[True]
+    B --> B2[False]
+    C --> C1[Valor nulo]
+
+    style A fill:#8B0000,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#DC143C,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#DC143C,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de booleanos y None:**
+
+```python
+# file: booleans_none.py
+
+# Boolean values
+is_active = True
+is_complete = False
+
+# Boolean operations
+result = is_active and is_complete
+result_or = is_active or is_complete
+result_not = not is_active
+
+# Truthiness
+empty_list = []
+non_empty_list = [1, 2, 3]
+print(f"Empty list is {bool(empty_list)}")
+print(f"Non-empty list is {bool(non_empty_list)}")
+
+# None value
+value = None
+if value is None:
+    print("Value is None")
+
+# Type checking
+print(f"Type of True: {type(True)}")
+print(f"Type of None: {type(None)}")
+```
+
+```bash
+python booleans_none.py
 ```
 
 ### Estructuras de Control
 
+#### 💡 Condicionales: if, elif, else, ternario
+
 <div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
 
 ```mermaid
 graph LR
-    A[Control de Flujo] --> B[Condicionales]
-    A --> C[Bucles]
-    A --> D[Control de Bucles]
+    A[Condicionales] --> B[if]
+    A --> C[elif]
+    A --> D[else]
+    A --> E[Ternario]
 
-    B --> B1[if]
-    B --> B2[elif]
-    B --> B3[else]
-    B --> B4[Ternario]
-
-    C --> C1[for]
-    C --> C2[while]
-    C --> C3[Comprensiones]
-
-    D --> D1[break]
-    D --> D2[continue]
-    D --> D3[pass]
-    D --> D4[else en bucles]
+    style A fill:#2C5F8D,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 </div>
 
-**Control de flujo en acción:**
+**Ejemplos de condicionales:**
 
 ```python
-# file: control_flow.py
-from random import randint
+# file: conditionals.py
 
-def evaluate_number():
-    number = randint(1, 10)
-    message = "Even number" if number % 2 == 0 else "Odd number"
-    print(f"Generated number: {number} -> {message}")
+# Basic if statement
+age = 18
+if age >= 18:
+    print("You are an adult")
 
-for _ in range(3):
-    evaluate_number()
+# if-elif-else chain
+score = 85
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
 else:
-    print("Loop finished without break.")
+    grade = "F"
+print(f"Grade: {grade}")
+
+# Ternary operator
+status = "active" if age >= 18 else "inactive"
+print(f"Status: {status}")
+
+# Nested conditionals
+temperature = 25
+if temperature > 20:
+    if temperature > 30:
+        print("Very hot")
+    else:
+        print("Warm")
+else:
+    print("Cold")
 ```
 
 ```bash
-python control_flow.py
+python conditionals.py
+```
+
+#### 🔄 Bucles: for, while, comprensiones
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Bucles] --> B[for]
+    A --> C[while]
+    A --> D[Comprensiones]
+
+    B --> B1[Iterar secuencias]
+    C --> C1[Repetir mientras condición]
+    D --> D1[List comprehensions]
+    D --> D2[Dict comprehensions]
+    D --> D3[Set comprehensions]
+
+    style A fill:#228B22,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#006400,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de bucles:**
+
+```python
+# file: loops.py
+
+# For loop with range
+for i in range(5):
+    print(f"Iteration {i}")
+
+# For loop with list
+fruits = ["apple", "banana", "orange"]
+for fruit in fruits:
+    print(f"Fruit: {fruit}")
+
+# For loop with enumerate
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# While loop
+count = 0
+while count < 3:
+    print(f"Count: {count}")
+    count += 1
+
+# List comprehension
+squares = [x**2 for x in range(5)]
+print(f"Squares: {squares}")
+
+# Dict comprehension
+squared_dict = {x: x**2 for x in range(5)}
+print(f"Squared dict: {squared_dict}")
+
+# Set comprehension
+unique_squares = {x**2 for x in range(-3, 4)}
+print(f"Unique squares: {unique_squares}")
+```
+
+```bash
+python loops.py
+```
+
+#### ⚡ Control de Bucles: break, continue, pass, else
+
+<div style="background-color: black; border-radius: 10px; padding: 20px; margin: 20px 0;">
+
+```mermaid
+graph LR
+    A[Control de Bucles] --> B[break]
+    A --> C[continue]
+    A --> D[pass]
+    A --> E[else en bucles]
+
+    B --> B1[Salir del bucle]
+    C --> C1[Saltar iteración]
+    D --> D1[Placeholder]
+    E --> E1[Ejecutar si no break]
+
+    style A fill:#8B008B,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#4B0082,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+</div>
+
+**Ejemplos de control de bucles:**
+
+```python
+# file: loop_control.py
+
+# Break - exit loop early
+for i in range(10):
+    if i == 5:
+        break
+    print(f"i = {i}")
+
+# Continue - skip iteration
+for i in range(5):
+    if i == 2:
+        continue
+    print(f"i = {i}")
+
+# Pass - placeholder
+for i in range(3):
+    if i == 1:
+        pass  # Do nothing, but syntax requires something
+    print(f"i = {i}")
+
+# Else with for loop (executes if no break)
+for i in range(3):
+    print(f"i = {i}")
+else:
+    print("Loop completed without break")
+
+# Else with while loop
+count = 0
+while count < 3:
+    print(f"Count: {count}")
+    count += 1
+else:
+    print("While loop completed")
+```
+
+```bash
+python loop_control.py
 ```
 
 ### Ejemplo de Sintaxis Completa
