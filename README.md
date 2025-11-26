@@ -36,7 +36,6 @@
 
 1. Install `Docker` [and (optional) `lazydocker`]
 1. Install `uv`
-1. Run `uv venv`
 
 ---
 

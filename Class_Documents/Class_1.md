@@ -466,13 +466,13 @@ message = "Hello Bootcamp"  # Inline comment
 def calculate_total(price, quantity):
     """
     Docstring: Multi-line documentation string.
-    
+
     This function calculates the total price.
-    
+
     Args:
         price: Unit price
         quantity: Number of items
-    
+
     Returns:
         Total price
     """
